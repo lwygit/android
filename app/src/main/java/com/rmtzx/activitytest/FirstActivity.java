@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class FirstActivity extends AppCompatActivity {
 
     @Override
@@ -49,7 +52,21 @@ public class FirstActivity extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int id = 10000;
+
+                long l = System.currentTimeMillis();
+                Date date = new Date(l);
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                String nyr = dateFormat.format(date);
+
                 Intent intent =new Intent(FirstActivity.this, ThirdActivity.class);
+                intent.putExtra("id",id);
+                intent.putExtra("time",nyr);
+
+                //用bundle传
+//                Bundle bundle = new Bundle();
+//                bundle.putInt("id",id);
+//                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });
