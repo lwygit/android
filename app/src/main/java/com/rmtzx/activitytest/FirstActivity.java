@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -70,5 +71,17 @@ public class FirstActivity extends AppCompatActivity {
                 startActivityForResult(intent,1);
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode,int resultCode,Intent data){
+        switch (requestCode) {
+            case 1:
+                if(resultCode == RESULT_OK){
+                    String returnedDate = data.getStringExtra("data_return");
+                    Log.e("A",returnedDate);
+                }
+
+        }
     }
 }
