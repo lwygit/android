@@ -31,7 +31,7 @@ public class FirstActivity extends AppCompatActivity {
                 Toast.makeText(FirstActivity.this, "baidu", Toast.LENGTH_SHORT).show();
 
                 //系统浏览器打开网站
-                Intent intent =  new Intent(Intent.ACTION_VIEW);
+                Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse("http://www.baidu.com"));
                 startActivity(intent);
 
@@ -60,7 +60,7 @@ public class FirstActivity extends AppCompatActivity {
 //                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 //                String nyr = dateFormat.format(date);
 
-                Intent intent =new Intent(FirstActivity.this, ThirdActivity.class);
+                Intent intent = new Intent(FirstActivity.this, ThirdActivity.class);
 //                intent.putExtra("id",id);
 //                intent.putExtra("time",nyr);
 
@@ -68,20 +68,28 @@ public class FirstActivity extends AppCompatActivity {
 //                Bundle bundle = new Bundle();
 //                bundle.putInt("id",id);
 //                intent.putExtras(bundle);
-                startActivityForResult(intent,1);
+                startActivityForResult(intent, 1);
             }
         });
+
+        Button button3 = findViewById(R.id.button3);
+        button3.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent3 = new Intent(FirstActivity.this,SecondActivity.class);
+                startActivity(intent3);
+            }
+        } );
     }
 
-    @Override
-    protected void onActivityResult(int requestCode,int resultCode,Intent data){
-        switch (requestCode) {
-            case 1:
-                if(resultCode == RESULT_OK){
-                    String returnedDate = data.getStringExtra("data_return");
-                    Log.e("A",returnedDate);
-                }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1 && resultCode == 1) {
+            String returnedDate = data.getStringExtra("data_return");
+            Log.e("AAA", returnedDate);
         }
+
     }
 }

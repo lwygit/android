@@ -29,7 +29,7 @@ public class ThirdActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent();
                 intent.putExtra("data_return", "Hello");
-                setResult(RESULT_OK, intent);
+                setResult(1, intent);
                 finish();
 
             }
