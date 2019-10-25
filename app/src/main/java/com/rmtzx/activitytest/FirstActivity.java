@@ -13,12 +13,15 @@ import android.widget.Toast;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class FirstActivity extends AppCompatActivity {
+public class FirstActivity extends BaseActivity {
+    String TAG = "AAA";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("AAA", "onCreate:AAA ");
 
+        Log.d(TAG, "onCreate: ");
         //加载视图xml文件
         setContentView(R.layout.first_layout);
 
@@ -60,7 +63,7 @@ public class FirstActivity extends AppCompatActivity {
 //                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 //                String nyr = dateFormat.format(date);
 
-                Intent intent = new Intent(FirstActivity.this, ThirdActivity.class);
+                Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
 //                intent.putExtra("id",id);
 //                intent.putExtra("time",nyr);
 
@@ -77,10 +80,10 @@ public class FirstActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Intent intent3 = new Intent(FirstActivity.this,SecondActivity.class);
+                Intent intent3 = new Intent(FirstActivity.this, ThirdActivity.class);
                 startActivity(intent3);
             }
-        } );
+        });
     }
 
 

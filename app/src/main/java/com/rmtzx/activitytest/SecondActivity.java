@@ -6,7 +6,7 @@ import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
 
-public class SecondActivity extends AppCompatActivity {
+public class SecondActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

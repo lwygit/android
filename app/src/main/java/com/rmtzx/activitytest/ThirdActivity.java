@@ -11,7 +11,7 @@ import android.widget.Button;
 
 import javax.security.auth.login.LoginException;
 
-public class ThirdActivity extends AppCompatActivity {
+public class ThirdActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,17 +20,21 @@ public class ThirdActivity extends AppCompatActivity {
 //        final Intent intent = getIntent();
 //        int id = intent.getIntExtra("id", -1);
 //        String time = intent.getStringExtra("time");
-//        Log.e("ss", Integer.toString(id));
+        Log.d("AAA", "ThirdActivity");
 //        Log.e("time", time);
 
         Button button3 = findViewById(R.id.button3);
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.putExtra("data_return", "Hello");
-                setResult(1, intent);
-                finish();
+//                Intent intent = new Intent(ThirdActivity.this, FirstActivity.class);
+//                startActivity(intent);
+
+                //销毁所有活动
+                ActivityCollector.finishAll();
+
+                //推出进程
+                android.os.Process.killProcess(android.os.Process.myPid());
 
             }
 //
