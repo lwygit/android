@@ -19,6 +19,38 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        Log.d("AAA", "onDestroy");
         ActivityCollector.removeActivity(this);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d("AAA", "onStart");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("AAA", "onResume");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d("AAA", "onPause");
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d("AAA", "onStop");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d("AAA", "onRestart");
     }
 }
