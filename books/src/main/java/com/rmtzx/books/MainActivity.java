@@ -1,22 +1,24 @@
-package com.rmtzx.activitytest;
+package com.rmtzx.books;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.KeyEvent;
-import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-public class SecondActivity extends BaseActivity {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
         getSupportActionBar().hide();
-        setContentView(R.layout.second_layout);
-        WebView webView = findViewById(R.id.web_view);
+        setContentView(R.layout.activity_main);
+        WebView webView = findViewById(R.id.webView);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new WebViewClient() {
             @Override
@@ -39,13 +41,12 @@ public class SecondActivity extends BaseActivity {
                 return true;
             }
         });
-//        webView.loadUrl("http://www.baidu.com");
         webView.loadUrl("http://tv.sf.cc/");
     }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        WebView webView = findViewById(R.id.web_view);
+        WebView webView = findViewById(R.id.webView);
         if (keyCode == KeyEvent.KEYCODE_BACK && webView.canGoBack()) {
             webView.goBack();// 返回前一个页面
             return true;
